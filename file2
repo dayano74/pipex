@@ -1,0 +1,15 @@
+0
+total 1604
+-rw-r--r-- 1 dayano 2024_tokyo     472 Mar 10 19:30 Makefile
+-rwxr-xr-x 1 dayano 2024_tokyo   16696 Mar 14 15:50 a.out
+-rw-r--r-- 1 dayano 2024_tokyo 1587014 Mar  4 10:39 en.subject.pdf
+-rw-r--r-- 1 dayano 2024_tokyo      24 Mar 14 15:42 file1
+-rw-r--r-- 1 dayano 2024_tokyo       0 Mar 14 15:50 file2
+-rw-r--r-- 1 dayano 2024_tokyo      33 Mar 11 14:01 infile
+drwxr-xr-x 4 dayano 2024_tokyo      61 Mar 14 14:18 libft
+-rw-r--r-- 1 dayano 2024_tokyo    2155 Mar 14 14:31 main.c
+-rw-r--r-- 1 dayano 2024_tokyo     396 Mar 13 21:19 note.md
+-rw-r--r-- 1 dayano 2024_tokyo       2 Mar 14 11:54 outfile
+-rw-r--r-- 1 dayano 2024_tokyo    1421 Mar 14 13:53 pipex.h
+-rw-r--r-- 1 dayano 2024_tokyo    2727 Mar 14 15:50 pipex_utils.c
+drwxr-xr-x 2 dayano 2024_tokyo     284 Mar 14 15:07 test

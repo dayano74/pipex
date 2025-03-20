@@ -1,0 +1,2 @@
+This message goes to output.txt instead of the terminal.
+done
