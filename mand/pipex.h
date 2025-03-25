@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 21:21:06 by dayano            #+#    #+#             */
-/*   Updated: 2025/03/18 22:27:32 by dayano           ###   ########.fr       */
+/*   Updated: 2025/03/24 16:36:01 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # define PATH_PREFIX_LEN 5
 
-# include "libft/incs/libft.h"
+# include "../libft/incs/libft.h"
 
 // main.c
 void	validate_args(int argc);

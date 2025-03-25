@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 22:43:56 by dayano            #+#    #+#             */
-/*   Updated: 2025/03/20 14:46:15 by dayano           ###   ########.fr       */
+/*   Updated: 2025/03/25 20:30:56 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ void	open_files(char *file1, char *file2, int *fd_in, int *fd_out)
 	if (*fd_in < 0)
 	{
 		perror("file1");
-		exit(EXIT_FAILURE);
+		// exit(EXIT_FAILURE);
 	}
 	*fd_out = open(file2, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (*fd_out < 0)
 	{
 		perror("file2");
-		exit(EXIT_FAILURE);
+		// exit(EXIT_FAILURE);
 	}
 }
 
