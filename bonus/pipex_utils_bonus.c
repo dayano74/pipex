@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:33:35 by dayano            #+#    #+#             */
-/*   Updated: 2025/03/25 21:51:20 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/01 13:55:48 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,41 @@ void	get_fd(char *file1, char *file2, int *fd_in, int *fd_out)
 	*fd_in = open(file1, O_RDONLY);
 	if (*fd_in < 0)
 	{
-		perror("file1");
-		exit(EXIT_FAILURE);
+		perror(file1);
+		*fd_in = open("/dev/null", O_RDONLY);
+		if (*fd_in < 0)
+			perror_exit_bonus("open /dev/null");
 	}
 	*fd_out = open(file2, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (*fd_out < 0)
 	{
-		perror("file2");
-		exit(EXIT_FAILURE);
+		perror(file2);
+		*fd_out = STDOUT_FILENO;
 	}
 }
 
-void	free_strings(char **str, int n)
+void	cleanup_and_exit(t_info *info)
 {
-	int	i;
-
-	if (!str)
-		return ;
-	i = 0;
-	while (i < n)
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+	if (info->root)
+		free_tree(info->root);
+	exit(EXIT_FAILURE);
 }
 
-void	free_str_array(char **str)
+void	cleanup_and_exit_status(t_info *info, int status)
 {
-	int i;
+	if (info->root)
+		free_tree(info->root);
+	exit(status);
+}
 
-	i = 0;
-	if (!str)
-		return ;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+void	perror_cleanup_and_exit(char *msg, t_info *info)
+{
+	perror(msg);
+	cleanup_and_exit(info);
+}
+
+void	perror_exit_bonus(char *msg)
+{
+	perror(msg);
+	exit(EXIT_FAILURE);
 }

@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 10:16:07 by dayano            #+#    #+#             */
-/*   Updated: 2025/03/25 21:33:46 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/01 18:09:27 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ void	child_process(char **argv, char **envp, int *pipe_fd, int fd_in)
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
 	execute_cmd(argv[2], envp);
+	exit(EXIT_FAILURE);
 }
 
-void	parent_process(char **argv, char **envp, int *pipe_fd, int fd_out)
+void	second_child_process(char **argv, char **envp, int *pipe_fd, int fd_out)
 {
 	if (dup2(pipe_fd[0], STDIN_FILENO) < 0)
 	{
@@ -50,4 +51,5 @@ void	parent_process(char **argv, char **envp, int *pipe_fd, int fd_out)
 	close(pipe_fd[0]);
 	close(pipe_fd[1]);
 	execute_cmd(argv[3], envp);
+	exit(EXIT_FAILURE);
 }

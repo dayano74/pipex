@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 10:16:07 by dayano            #+#    #+#             */
-/*   Updated: 2025/03/24 18:24:59 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/01 13:50:00 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ void	perror_exit(char *msg)
 {
 	perror(msg);
 	exit(EXIT_FAILURE);
+}
+
+void	perror_exit_status(char *msg, int status)
+{
+	perror(msg);
+	exit(status);
 }
 
 void	free_str_array(char **str)

@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/21 15:50:09 by dayano            #+#    #+#             */
-/*   Updated: 2025/02/26 15:40:36 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/01 21:56:55 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,10 @@ static char	*update_save(char *save)
 	if (!remained_save)
 	{
 		return (free(save), NULL);
+	}
+	if (remained_save[0] == '\0')
+	{
+		return (free(remained_save), free(save), NULL);
 	}
 	free(save);
 	return (remained_save);
@@ -95,6 +99,15 @@ char	*get_next_line(int fd)
 	if (!save)
 		return (NULL);
 	line = extract_line(save);
-	save = update_save(save);
+	if (!line || line[0] == '\0')
+	{
+		free(save);
+		save = NULL;
+	}
+	else
+	{
+		save = update_save(save);
+	}
+	// save = update_save(save);
 	return (line);
 }

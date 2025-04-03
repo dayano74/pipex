@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 12:43:03 by dayano            #+#    #+#             */
-/*   Updated: 2025/03/09 21:06:12 by dayano           ###   ########.fr       */
+/*   Updated: 2025/03/29 20:49:46 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ char				*ft_strchr(const char *s, int c);
 char				*ft_strrchr(const char *s, int c);
 long				ft_strtol(const char *nptr, char **endptr, int base);
 long long			ft_strtoll(const char *nptr, char **endptr, int base);
+int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);

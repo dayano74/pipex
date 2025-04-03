@@ -11,6 +11,7 @@ SRCS =	ft_strlen.c \
 		ft_strtoll.c \
 		ft_strrchr.c \
 		ft_strnstr.c \
+		ft_strcmp.c \
 		ft_strncmp.c \
 		ft_memset.c \
 		ft_bzero.c \
@@ -46,7 +47,6 @@ SRCS =	ft_strlen.c \
 		ft_lstiter_bonus.c \
 		ft_lstmap_bonus.c \
 		get_next_line.c \
-		get_next_line_utils.c \
 		ft_printf.c \
 		ft_putchar_fd.c \
 		ft_putendl_fd.c \
@@ -87,6 +87,11 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+
+clean_b:
+	rm -f $(B_OBJS) $(BONUS_FLAG)
+	rm -f $(NAME)
+
 
 re: fclean all
 
