@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/24 18:23:52 by dayano            #+#    #+#             */
-/*   Updated: 2025/04/06 22:15:38 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/12 16:33:04 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,12 @@ static void	pipe_multiple(int argc, char **argv, char **envp)
 	{
 		perror(info.infile);
 	}
+	info.fd_out = -1;
 	cmd_count = argc - 3;
 	cmd_nodes = create_cmd_nodes(cmd_count, argv, 2);
 	tree = build_left_associative_tree(cmd_nodes, cmd_count);
 	free(cmd_nodes);
+	initialize_is_last(tree);
 	mark_last_command(tree);
 	info.root = tree;
 	execute_node(tree, &info, envp);

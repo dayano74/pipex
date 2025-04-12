@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 22:31:23 by dayano            #+#    #+#             */
-/*   Updated: 2025/04/01 18:19:12 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/10 19:27:32 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,13 @@ int	is_cmd(char *cmd, char **envp, char **full_path)
 	return (1);
 }
 
+static void	cmd_not_found_exit(char *cmd)
+{
+	ft_putstr_fd(cmd, STDERR_FILENO);
+	ft_putstr_fd(": command not found\n", STDERR_FILENO);
+	exit(127);
+}
+
 void	execute_cmd(char *cmd, char **envp)
 {
 	char	*cmd_path;
@@ -73,7 +80,7 @@ void	execute_cmd(char *cmd, char **envp)
 
 	if (!cmd || ft_strlen(cmd) == 0)
 	{
-		ft_putstr_fd("Usage: ./pipex file1 cmd1 cmd2 file2\n", STDERR_FILENO);
+		ft_putstr_fd("Command '' not found\n", STDERR_FILENO);
 		exit(127);
 	}
 	args = ft_split(cmd, ' ');
@@ -85,7 +92,7 @@ void	execute_cmd(char *cmd, char **envp)
 	if (is_cmd(args[0], envp, &cmd_path) < 0)
 	{
 		free_str_array(args);
-		perror_exit_status(cmd, 127);
+		cmd_not_found_exit(cmd);
 	}
 	if (execve(cmd_path, args, envp) < 0)
 	{

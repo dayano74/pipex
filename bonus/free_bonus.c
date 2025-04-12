@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 20:46:13 by dayano            #+#    #+#             */
-/*   Updated: 2025/03/31 20:46:18 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/10 21:21:49 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,10 @@ void	free_tree(t_node *node)
 	if (node->cmd)
 		free_str_array(node->cmd);
 	free(node);
+}
+
+void	free_perror_cleanup_exit(char *str, char *msg, t_info *info)
+{
+	free(str);
+	perror_cleanup_and_exit(msg, info);
 }

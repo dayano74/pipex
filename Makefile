@@ -18,6 +18,7 @@ BONUS_SRCS_FILES :=	main_bonus.c \
 					create_node_bonus.c \
 					execute_cmd_bonus.c \
 					pipex_utils_bonus.c \
+					pipex_utils_2_bonus.c \
 					free_bonus.c \
 					here_doc_bonus.c
 BONUS_SRCS := $(addprefix $(BONUS_SRCS_DIR)/, $(BONUS_SRCS_FILES))

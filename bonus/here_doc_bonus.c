@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 20:07:17 by dayano            #+#    #+#             */
-/*   Updated: 2025/03/31 20:03:34 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/09 21:16:29 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ static int	compare_line_with_limiter(int *pipefd, char *limiter)
 	line = get_next_line(STDIN_FILENO);
 	if (!line)
 	{
-		perror("gnl");
-		exit(EXIT_FAILURE);
+		write(STDOUT_FILENO, "\n", 1);
+		return (0);
 	}
 	read_size = ft_strlen(line);
 	if (line[read_size - 1] == '\n')

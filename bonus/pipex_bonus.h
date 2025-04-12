@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 20:56:23 by dayano            #+#    #+#             */
-/*   Updated: 2025/04/06 22:10:45 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/12 18:28:02 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,17 +70,24 @@ int					is_cmd(char *cmd, char **envp, char **full_path);
 void				pipe_here_doc(int argc, char **argv, char **envp);
 
 // pipex_utils_bonus.c
-// void				get_fd(char *file1, char *file2, int *fd_in, int *fd_out);
-void				mark_last_command(t_node *node);
 void				cleanup_and_exit(t_info *info);
 void				cleanup_and_exit_status(t_info *info, int status);
 void				perror_cleanup_and_exit(char *msg, t_info *info);
 void				perror_exit_bonus(char *msg);
+
+// pipex_utils_2_bonus.c
+void				mark_last_command(t_node *node);
+void				initialize_is_last(t_node *node);
+void				close_pipe_and_info(t_info *info, int *pipe_fd);
+void				wait_and_exit(t_info *info, pid_t pid_left,
+						pid_t pid_right);
 
 // free_bonus.c
 void				free_strings(char **str, int n);
 void				free_str_array(char **str);
 void				free_nodes(t_node **nodes, int n);
 void				free_tree(t_node *node);
+void				free_perror_cleanup_exit(char *str, char *msg,
+						t_info *info);
 
 #endif

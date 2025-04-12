@@ -6,7 +6,7 @@
 /*   By: dayano <dayano@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 21:38:57 by dayano            #+#    #+#             */
-/*   Updated: 2025/04/01 13:21:24 by dayano           ###   ########.fr       */
+/*   Updated: 2025/04/10 20:43:39 by dayano           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,6 @@ int	is_cmd(char *cmd, char **envp, char **full_path)
 	*full_path = get_cmd_path(cmd, envp);
 	if (!*full_path)
 	{
-		perror(cmd);
 		return (-1);
 	}
 	return (1);
